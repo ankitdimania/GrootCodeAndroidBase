@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- ActionBar -->
+    <color name="action_bar_search_hint">#ddd</color>
+
+    <!-- Window -->
+    <color name="window_background">#e5e5e5</color>
+    <color name="slide_menu_background">#f5f5f5</color>
+    
+    <!-- Text Colors -->
+    <color name="primary_text">#000</color>
+    <color name="secondary_text">#999</color>
+    
+    <!-- Body Text -->
+    <color name="body_text_1">#000</color>
+    <color name="body_text_2">#f999</color>
+    <color name="body_text_disabled">#666</color>
+    <color name="body_text_1_inverse">#fff</color>
+    <color name="body_text_2_inverse">#9ff</color>
+    <color name="body_text_1_positive">#690</color>
+    <color name="body_text_1_negative">#f44</color>
+    <color name="accent_1">#4683ec</color>
+    <color name="accent_2">#c182e0</color>
+</resources>

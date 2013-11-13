@@ -1,0 +1,10 @@
+<!-- Headder view representing the seperator in menu -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_list_item_header_textview"
+    style="@style/SideMenuSeparator"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom"
+    android:paddingBottom="8dip"
+    android:paddingLeft="12.0dip"
+    android:paddingTop="10dip" />

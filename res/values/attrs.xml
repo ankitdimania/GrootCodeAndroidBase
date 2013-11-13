@@ -1,0 +1,14 @@
+<resources>
+
+    <declare-styleable name="BaseTheme">
+        <attr name="textHeaderMaxLines" format="integer" />
+        <attr name="activatableItemBackground" format="reference" />
+        <attr name="drawerIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BezelImageView">
+        <attr name="maskDrawable" format="reference" />
+        <attr name="borderDrawable" format="reference" />
+    </declare-styleable>
+
+</resources>
