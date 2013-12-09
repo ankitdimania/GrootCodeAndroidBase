@@ -6,14 +6,32 @@
     -->
     <style name="Theme.GrootFrameworkRoot.Light" parent="Theme.AppCompat.Light">
         <!-- API 11 theme customizations can go here. -->
+        <item name="android:windowContentOverlay">@drawable/actionbar_shadow</item>
+        <item name="android:actionMenuTextColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="listSeparatorTextViewStyle">?android:listSeparatorTextViewStyle</item>
     </style>
 
     <style name="Theme.GrootFrameworkRoot.Light.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- API 11 theme customizations can go here. -->
+        <item name="android:windowContentOverlay">@drawable/actionbar_shadow</item>
+        <item name="android:actionMenuTextColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="listSeparatorTextViewStyle">?android:listSeparatorTextViewStyle</item>
     </style>
 
     <style name="Theme.GrootFrameworkRoot.Light.DarkActionBar.LightMenu" parent="Theme.AppCompat.Light">
         <!-- API 11 theme customizations can go here. -->
+        <item name="android:windowContentOverlay">@drawable/actionbar_shadow</item>
+        <item name="android:actionMenuTextColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="listSeparatorTextViewStyle">?android:listSeparatorTextViewStyle</item>
+    </style>
+
+    <style name="ListCardItem" parent="ListItemContainerBase">
+        <!-- item name="android:background">@drawable/card_background_gray_bg_full</item -->
+        <!-- We don't need a highlight coz an activatableItem background is available in v-11 -->
+        <!-- <item name="android:foreground">@drawable/activatable_item_background</item> -->
     </style>
 
 </resources>

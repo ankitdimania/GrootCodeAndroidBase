@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/grey_background_pattern"
+    android:baselineAligned="false"
+    android:padding="@dimen/multipane_half_padding"
+    android:gravity="center"
+    android:weightSum="100">
+
+    <FrameLayout android:id="@+id/root_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="@integer/login_pane_width_percent"
+        android:layout_marginTop="@dimen/multipane_half_padding"
+        android:layout_marginBottom="@dimen/multipane_half_padding"
+        android:background="@drawable/grey_frame_on_white" />
+
+</LinearLayout>

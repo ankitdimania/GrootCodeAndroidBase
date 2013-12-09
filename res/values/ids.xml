@@ -1,0 +1,6 @@
+<resources>
+
+    <item name="sliding_tab_strip" type="id"/>
+    <item name="sliding_tab_pager" type="id"/>
+
+</resources>

@@ -1,32 +1,27 @@
-package com.grootcode.base;
+package com.grootcode.base.ui;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
-import android.view.MenuItem;
 
-import com.grootcode.android.util.LogUtils;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.grootcode.android.util.SearchMenuCompat;
 import com.grootcode.roboguice.activity.RoboActionBarActivity;
-import com.google.analytics.tracking.android.EasyTracker;
 
 /**
  * A base activity that handles common functionality across Apps.
- *
+ * 
  * Created by AnkitD on 11/10/13.
  */
 public class BaseActivity extends RoboActionBarActivity {
-    private static final String TAG = LogUtils.makeLogTag(BaseActivity.class);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     protected void setupSearchMenuItem(Menu menu) {
         SearchMenuCompat.setupSearchMenuItem(this, menu);
-
-        final MenuItem searchItem = menu.findItem(R.id.menu_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setQueryHint("TestData");
     }
 
     /**

@@ -1,0 +1,3 @@
+<resources>
+    <integer name="login_pane_width_percent">80</integer>
+</resources>

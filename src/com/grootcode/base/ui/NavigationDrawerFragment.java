@@ -1,4 +1,4 @@
-package com.grootcode.base;
+package com.grootcode.base.ui;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -22,17 +22,15 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.grootcode.android.util.LogUtils;
+import com.grootcode.base.R;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
- * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
+ * See the <a
+ * href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment {
-    private static final String TAG = LogUtils.makeLogTag(NavigationDrawerFragment.class);
-
-
     /**
      * Remember the position of the selected item.
      */
@@ -66,6 +64,18 @@ public class NavigationDrawerFragment extends Fragment {
     private CharSequence mDrawerTitle;
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mCallbacks = (NavigationDrawerCallbacks) activity;
+
+            mDrawerTitle = activity.getTitle();
+        } catch (ClassCastException e) {
+            throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -77,6 +87,9 @@ public class NavigationDrawerFragment extends Fragment {
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
             mFromSavedInstanceState = true;
+        } else {
+            // Select either the default item (0) or the last selected item.
+            selectItem(mCurrentSelectedPosition);
         }
 
         // Indicate that this fragment would like to influence the set of actions in the action bar.
@@ -84,10 +97,8 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        mDrawerListView = (ListView) inflater.inflate(
-                R.layout.fragment_navigation_drawer, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mDrawerListView = (ListView) inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -96,8 +107,8 @@ public class NavigationDrawerFragment extends Fragment {
         });
         if (mDrawerListAdapter != null) {
             mDrawerListView.setAdapter(mDrawerListAdapter);
+            mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         }
-        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 
         return mDrawerListView;
     }
@@ -106,6 +117,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListAdapter = adapter;
         if (mDrawerListView != null) {
             mDrawerListView.setAdapter(adapter);
+            mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         }
     }
 
@@ -115,10 +127,13 @@ public class NavigationDrawerFragment extends Fragment {
 
     /**
      * Users of this fragment must call this method to set up the navigation drawer interactions.
-     *
-     * @param fragmentId   The android:id of this fragment in its activity's layout.
-     * @param drawerLayout The DrawerLayout containing this fragment's UI.
-     * @param adapter The List Adapter for the sliding menu
+     * 
+     * @param fragmentId
+     *            The android:id of this fragment in its activity's layout.
+     * @param drawerLayout
+     *            The DrawerLayout containing this fragment's UI.
+     * @param adapter
+     *            The List Adapter for the sliding menu
      */
     public void setUp(int fragmentId, DrawerLayout drawerLayout, ListAdapter adapter) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
@@ -134,12 +149,11 @@ public class NavigationDrawerFragment extends Fragment {
 
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the navigation drawer and the action bar app icon.
-        mDrawerToggle = new ActionBarDrawerToggle(
-                getActivity(),                    /* host Activity */
-                mDrawerLayout,                    /* DrawerLayout object */
-                typedValue.resourceId,             /* nav drawer image to replace 'Up' caret */
-                R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
-                R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
+        mDrawerToggle = new ActionBarDrawerToggle(getActivity(), /* host Activity */
+        mDrawerLayout, /* DrawerLayout object */
+        typedValue.resourceId, /* nav drawer image to replace 'Up' caret */
+        R.string.navigation_drawer_open, /* "open drawer" description for accessibility */
+        R.string.navigation_drawer_close /* "close drawer" description for accessibility */
         ) {
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -162,8 +176,7 @@ public class NavigationDrawerFragment extends Fragment {
                     // The user manually opened the drawer; store this flag to prevent auto-showing
                     // the navigation drawer automatically in the future.
                     mUserLearnedDrawer = true;
-                    SharedPreferences sp = PreferenceManager
-                            .getDefaultSharedPreferences(getActivity());
+                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).commit();
                 }
 
@@ -202,21 +215,6 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mCallbacks = (NavigationDrawerCallbacks) activity;
-
-            mDrawerTitle = activity.getTitle();
-
-            // Select either the default item (0) or the last selected item.
-            selectItem(mCurrentSelectedPosition);
-        } catch (ClassCastException e) {
-            throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
-        }
-    }
-
-    @Override
     public void onDetach() {
         super.onDetach();
         mCallbacks = null;
@@ -248,10 +246,7 @@ public class NavigationDrawerFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     /**

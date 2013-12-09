@@ -5,4 +5,4 @@
     android:choiceMode="singleChoice"
     android:background="@color/window_background"
     android:cacheColorHint="@color/window_background"
-    tools:context="com.grootcode.base.NavigationDrawerFragment" />
+    tools:context="com.grootcode.base.ui.NavigationDrawerFragment" />

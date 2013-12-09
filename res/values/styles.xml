@@ -1,5 +1,5 @@
 <!-- make targetApi to 14 while development to prevent errors. Change it back to 10 when done and clean the project -->
-<resources xmlns:tools="http://schemas.android.com/tools" tools:targetApi="14" xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android" tools:targetApi="14">
 
     <!-- Empty parent idiom -->
     <style name="NoParent" />
@@ -9,27 +9,41 @@
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="Theme.GrootFrameworkRoot.Light" parent="Theme.AppCompat.Light">
+
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <!-- Defines a color for text that appears in an action item. -->
+        <item name="android:actionMenuTextColor">?android:attr/textColorPrimaryInverseDisableOnly</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryInverseDisableOnly</item>
+        <!-- Define list separator Syle -->
+        <item name="listSeparatorTextViewStyle">@style/ListSeparatorTextViewStyle</item>
     </style>
 
     <style name="Theme.GrootFrameworkRoot.Light.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="android:actionMenuTextColor">?android:attr/textColorPrimaryInverseDisableOnly</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryInverseDisableOnly</item>
+        <item name="listSeparatorTextViewStyle">@style/ListSeparatorTextViewStyle</item>
     </style>
 
     <style name="Theme.GrootFrameworkRoot.Light.DarkActionBar.LightMenu" parent="Theme.AppCompat.Light">
+
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <item name="android:actionMenuTextColor">?android:attr/textColorPrimaryInverseDisableOnly</item>
+        <item name="actionMenuTextColor">?android:attr/textColorPrimaryInverseDisableOnly</item>
+        <item name="listSeparatorTextViewStyle">@style/ListSeparatorTextViewStyle</item>
     </style>
 
     <style name="GrootFrameworkRoot.Light.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid" />
@@ -49,8 +63,9 @@
     <!-- Overflow icon -->
     <style name="GrootFrameworkRoot.Dark.ActionButton.Overflow" parent="Widget.AppCompat.ActionButton.Overflow" />
 
-    <style name="GrootFrameworkRoot.Light.ActionBar.AutoCompleteTextView" parent="Widget.AppCompat.AutoCompleteTextView">
-        <!--item name="android:textAppearance">?attr/actionMenuTextColor ?android:attr/textAppearanceMediumInverse</item-->
+    <style name="GrootFrameworkRoot.Light.DarkActionBar.AutoCompleteTextView" parent="Widget.AppCompat.AutoCompleteTextView">
+
+        <!-- item name="android:textAppearance">?attr/actionMenuTextColor ?android:attr/textAppearanceMediumInverse</item -->
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@color/action_bar_search_hint</item>
         <item name="android:textCursorDrawable">@drawable/action_bar_dark_cursor</item>
@@ -63,6 +78,7 @@
         <!-- Other -->
         <item name="textHeaderMaxLines">@integer/text_header_max_lines</item>
         <item name="activatableItemBackground">@drawable/activatable_item_background</item>
+        <item name="emptyText">@style/EmptyText</item>
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:actionBarStyle">@style/GrootCodeBase.Light.ActionBar</item>
@@ -76,6 +92,7 @@
         <!-- Other -->
         <item name="textHeaderMaxLines">@integer/text_header_max_lines</item>
         <item name="activatableItemBackground">@drawable/activatable_item_background</item>
+        <item name="emptyText">@style/EmptyText</item>
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:actionBarStyle">@style/GrootCodeBase.Light.DarkActionBar</item>
@@ -99,7 +116,7 @@
         <item name="searchViewVoiceIcon">@drawable/abc_ic_voice_search</item>
         <item name="searchViewEditQuery">@drawable/abc_ic_commit_search_api_holo_dark</item>
         <item name="searchViewEditQueryBackground">?attr/selectableItemBackground</item>
-        <item name="searchViewAutoCompleteTextView">@style/GrootFrameworkRoot.Light.ActionBar.AutoCompleteTextView</item>
+        <item name="searchViewAutoCompleteTextView">@style/GrootFrameworkRoot.Light.DarkActionBar.AutoCompleteTextView</item>
         <item name="actionModeShareDrawable">@drawable/abc_ic_menu_share_holo_dark</item>
 
         <!-- Overflow icon -->
@@ -109,10 +126,24 @@
         <!-- actionBarItemBackground -->
         <item name="android:actionBarItemBackground">@drawable/ab_selectable_background</item>
         <item name="actionBarItemBackground">@drawable/ab_selectable_background</item>
-        
+
+        <!-- Action Mode -->
+        <item name="android:actionModeStyle">@style/Widget.AppCompat.Light.ActionMode.Inverse</item>
+        <item name="actionModeStyle">@style/Widget.AppCompat.Light.ActionMode.Inverse</item>
+        <item name="android:actionModeBackground">@drawable/abc_cab_background_top_holo_dark</item>
+        <item name="actionModeBackground">@drawable/abc_cab_background_top_holo_dark</item>
+        <item name="android:actionModeSplitBackground">@drawable/abc_cab_background_bottom_holo_dark</item>
+        <item name="actionModeSplitBackground">@drawable/abc_cab_background_bottom_holo_dark</item>
+        <item name="android:actionModeCloseDrawable">@drawable/abc_ic_cab_done_holo_dark</item>
+        <item name="actionModeCloseDrawable">@drawable/abc_ic_cab_done_holo_dark</item>
+        <item name="android:actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode</item>
+
         <!-- Other -->
         <item name="textHeaderMaxLines">@integer/text_header_max_lines</item>
         <item name="activatableItemBackground">@drawable/activatable_item_background</item>
+        <item name="emptyText">@style/EmptyText</item>
+        <item name="indicatorColor">@color/action_bar_theme</item>
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:actionBarStyle">@style/GrootCodeBase.Light.DarkActionBar.LightMenu</item>
@@ -125,36 +156,22 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Light.ActionBar.SubtitleText" parent="GrootFrameworkRoot.Light.ActionBar.SubtitleText">
-    </style>
+    <style name="Light.ActionBar.SubtitleText" parent="GrootFrameworkRoot.Light.ActionBar.SubtitleText"></style>
 
     <style name="Dark.ActionBar.TitleText" parent="GrootFrameworkRoot.Dark.ActionBar.TitleText">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Dark.ActionBar.SubtitleText" parent="GrootFrameworkRoot.Dark.ActionBar.SubtitleText">
-    </style>
+    <style name="Dark.ActionBar.SubtitleText" parent="GrootFrameworkRoot.Dark.ActionBar.SubtitleText"></style>
 
     <style name="GrootCodeBase.Light.ActionBar" parent="GrootFrameworkRoot.Light.ActionBar">
-        <!--item name="android:background">?attr/actionBarItemBackground</item>
-        <item name="background">?attr/actionBarItemBackground</item-->
         <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
         <item name="displayOptions">showHome|homeAsUp|showTitle</item>
-        <!--item name="android:titleTextStyle">@style/GrootFrameworkRoot.Light.ActionBar.TitleText</item>
-        <item name="titleTextStyle">@style/GrootFrameworkRoot.Light.ActionBar.TitleText</item>
-        <item name="android:subtitleTextStyle">@style/GrootFrameworkRoot.Light.ActionBar.SubtitleText</item>
-        <item name="subtitleTextStyle">@style/GrootFrameworkRoot.Light.ActionBar.SubtitleText</item-->
     </style>
 
     <style name="GrootCodeBase.Light.DarkActionBar" parent="GrootFrameworkRoot.Light.DarkActionBar">
-        <!--item name="android:background">@drawable/action_bar_bg</item>
-        <item name="background">@drawable/action_bar_bg</item-->
         <item name="android:displayOptions">showHome|homeAsUp|showTitle</item>
         <item name="displayOptions">showHome|homeAsUp|showTitle</item>
-        <!--item name="android:titleTextStyle">@style/GrootFrameworkRoot.Dark.ActionBar.TitleText</item>
-        <item name="titleTextStyle">@style/GrootFrameworkRoot.Dark.ActionBar.TitleText</item>
-        <item name="android:subtitleTextStyle">@style/GrootFrameworkRoot.Dark.ActionBar.SubtitleText</item>
-        <item name="subtitleTextStyle">@style/GrootFrameworkRoot.Dark.ActionBar.SubtitleText</item-->
     </style>
 
     <style name="GrootCodeBase.Light.DarkActionBar.LightMenu" parent="GrootFrameworkRoot.Light.DarkActionBar.LightMenu">
@@ -167,18 +184,61 @@
         <item name="android:subtitleTextStyle">@style/GrootFrameworkRoot.Dark.ActionBar.SubtitleText</item>
         <item name="subtitleTextStyle">@style/GrootFrameworkRoot.Dark.ActionBar.SubtitleText</item>
     </style>
-    
+
+    <!-- Splitters -->
+    <style name="vertical_splitter_item">
+        <item name="android:background">#ddd</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="vertical_splitter_item_popup">
+        <item name="android:background">#ddd</item>
+    </style>
+
+    <style name="horizontal_splitter_item">
+        <item name="android:background">#999</item>
+        <item name="android:layout_margin">1dp</item>
+    </style>
+
+    <style name="horizontal_splitter_item2">
+        <item name="android:background">#ccc</item>
+        <item name="android:layout_margin">1dp</item>
+    </style>
+
+    <style name="horizontal_splitter_item_internal">
+        <item name="android:background">#aaa</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+    </style>
+
+    <!-- Pager -->
+    <style name="PagerTabStripText">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/body_text_1_inverse</item>
+    </style>
+
+    <style name="PagerSlidingTabStripText">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/body_text_2</item>
+        <item name="indicatorColor">@color/action_bar_theme</item>
+    </style>
+
     <!-- List views and list items -->
     <style name="ListItemContainerBase">
-        <item name="android:background">@drawable/activatable_item_background</item>
+        <item name="android:background">?activatableItemBackground</item>
         <item name="android:minHeight">?android:listPreferredItemHeight</item>
     </style>
 
     <style name="SideMenuText" parent="ListItemContainerBase">
-        <item name="android:textSize">21.0sp</item>
-        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">22.0sp</item>
+        <item name="android:textColor">@drawable/primary_text_light</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/activatable_item_background_dark</item>
     </style>
 
     <style name="SideMenuSeparator">
@@ -189,4 +249,195 @@
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/accent_grey_bottom_border</item>
     </style>
+
+    <style name="ListSeparatorTextViewStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">@dimen/padding_list_item_sub_section</item>
+        <item name="android:background">@drawable/accent_grey_bottom_border</item>
+        <item name="android:paddingBottom">@dimen/padding_list_item_sub_section</item>
+    </style>
+
+    <style name="ListCardItem" parent="ListItemContainerBase">
+
+        <!-- item name="android:background">@drawable/card_background_gray_bg_full</item -->
+        <item name="android:foreground">@drawable/activatable_item_background</item>
+    </style>
+
+    <!-- SimpleListItems are items whose containers provides the appropriate padding, and usually the container and content are a single view. -->
+    <style name="SimpleListItem" parent="ListItemContainerBase">
+        <item name="android:paddingLeft">?listPreferredItemPaddingLeft</item>
+        <item name="android:paddingRight">?listPreferredItemPaddingRight</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="SimpleListItemSmall" parent="SimpleListItem">
+        <item name="android:minHeight">?listPreferredItemHeight</item>
+    </style>
+
+    <style name="SimpleListItem.Inset" parent="ListItemContainerBase">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="SimpleListItem.Inset.Small" parent="SimpleListItem.Inset">
+        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
+    </style>
+
+    <!-- ComplexListItems are items whose content must provide the padding. -->
+    <style name="ComplexListItem" parent="ListItemContainerBase" />
+
+    <style name="ComplexListItem.Inset" parent="ComplexListItem">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="ComplexListItem.Inset.Small" parent="ComplexListItem.Inset">
+        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
+    </style>
+
+    <style name="ComplexListItemContent">
+        <item name="android:paddingLeft">?listPreferredItemPaddingLeft</item>
+        <item name="android:paddingRight">?listPreferredItemPaddingRight</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="ComplexListItemContent.Inset" parent="ComplexListItemContent">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+    </style>
+
+    <!-- List item text -->
+    <style name="ListItemTitle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">@color/body_text_1</item>
+    </style>
+
+    <style name="ListItemTitle.ComplexContent" parent="ListItemTitle">
+        <item name="android:paddingLeft">?listPreferredItemPaddingLeft</item>
+        <item name="android:paddingRight">?listPreferredItemPaddingRight</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="ListItemTitle.ComplexContent.Inset" parent="ListItemTitle.ComplexContent">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+    </style>
+
+    <style name="ListItemSubtitle">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/body_text_2</item>
+    </style>
+
+    <style name="ListItemSubtitleBold" parent="ListItemSubtitle">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ListItemSubSubtitle" parent="ListSeparatorTextViewStyle">
+        <item name="android:textColor">@color/body_text_2</item>
+    </style>
+
+    <style name="ListItemSubSubtitle2">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">@dimen/padding_list_item_sub_section</item>
+        <item name="android:background">@android:color/darker_gray</item>
+    </style>
+
+    <style name="ListItemTitle.Inverse">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/body_text_1_inverse</item>
+    </style>
+
+    <style name="ListItemSubtitle.Inverse">
+        <item name="android:textColor">@color/body_text_2_inverse</item>
+    </style>
+
+    <!-- Empty views -->
+    <style name="EmptyText">
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textColor">#aaa</item>
+    </style>
+
+    <!-- Body content -->
+    <style name="TextHeader">
+        <item name="android:textSize">@dimen/text_size_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:maxLines">?textHeaderMaxLines</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextHeaderSub">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/body_text_2</item>
+    </style>
+
+    <style name="TextHeaderSubSmall">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/body_text_2</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="TextHeaderUnderline">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent_1</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">@drawable/accent_blue_bottom_border</item>
+    </style>
+
+    <style name="TextHeaderLarge">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:textIsSelectable">false</item>
+    </style>
+
+    <style name="TextHeaderMedium">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:textIsSelectable">false</item>
+    </style>
+
+    <style name="TextHeaderMediumSelectable">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="TextHeaderSmall">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent_2</item>
+    </style>
+
+    <style name="TextBody">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:textIsSelectable">false</item>
+    </style>
+
+    <style name="TextBodySelectable">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
 </resources>
