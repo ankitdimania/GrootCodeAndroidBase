@@ -82,10 +82,12 @@ public abstract class MainActivity extends BaseActivity implements NavigationDra
             }
 
             SlidingMenuItem menuItem = getItem(position);
-            if (TextUtils.isEmpty(menuItem.subTitle)) {
+            if (!TextUtils.isEmpty(menuItem.title)) {
                 holder.title.setText(menuItem.title);
-            } else {
+            } else if (!TextUtils.isEmpty(menuItem.subTitle)) {
                 holder.title.setText(menuItem.subTitle);
+            } else {
+                holder.title.setText("");
             }
             if (menuItem.getIconRes() != 0) {
                 holder.title.setCompoundDrawablesWithIntrinsicBounds(menuItem.getIconRes(), 0, 0, 0);

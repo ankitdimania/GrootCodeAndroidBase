@@ -1,16 +1,7 @@
 <resources>
      
     <!-- UI Elements -->
-    <dimen name="multipane_half_padding">16dp</dimen>
     
     <!-- body content bump up sizes -->
-    <!-- basically just bump up font sizes -->
-    <dimen name="element_spacing_normal">8dp</dimen>
-    <dimen name="content_padding_normal">16dp</dimen>
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_medium">18sp</dimen>
-    <dimen name="text_size_large">22sp</dimen>
-    <dimen name="text_size_xlarge">26sp</dimen>
-    <dimen name="text_size_diff_large_small">8sp</dimen>
 
 </resources>

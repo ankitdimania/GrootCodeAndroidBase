@@ -440,4 +440,13 @@
         <item name="android:textIsSelectable">true</item>
     </style>
 
+    <style name="ItemDetailHeader">
+        <item name="android:background">@drawable/background_pattern_transparent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">@dimen/content_padding_normal</item>
+        <item name="android:paddingRight">@dimen/content_padding_normal</item>
+        <item name="android:paddingTop">@dimen/content_padding_normal</item>
+        <item name="android:paddingBottom">@dimen/content_padding_normal</item>
+    </style>
+
 </resources>

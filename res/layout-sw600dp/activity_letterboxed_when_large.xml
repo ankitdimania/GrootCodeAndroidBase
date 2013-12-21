@@ -2,7 +2,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grey_background_pattern"
+    android:background="@drawable/background_pattern_grey"
     android:baselineAligned="false"
     android:padding="@dimen/multipane_half_padding"
     android:gravity="center"

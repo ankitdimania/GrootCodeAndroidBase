@@ -30,7 +30,7 @@ import com.grootcode.base.R;
  * href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
-public class NavigationDrawerFragment extends Fragment {
+public class NavigationDrawerFragment extends Fragment implements AdapterView.OnItemClickListener {
     /**
      * Remember the position of the selected item.
      */
@@ -61,6 +61,10 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
+    /**
+     * Save the default Title of the activity. We set the default title, when navigation list is
+     * shown
+     */
     private CharSequence mDrawerTitle;
 
     @Override
@@ -68,7 +72,6 @@ public class NavigationDrawerFragment extends Fragment {
         super.onAttach(activity);
         try {
             mCallbacks = (NavigationDrawerCallbacks) activity;
-
             mDrawerTitle = activity.getTitle();
         } catch (ClassCastException e) {
             throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
@@ -87,10 +90,10 @@ public class NavigationDrawerFragment extends Fragment {
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
             mFromSavedInstanceState = true;
-        } else {
-            // Select either the default item (0) or the last selected item.
-            selectItem(mCurrentSelectedPosition);
         }
+
+        // Select either the default item (0) or the last selected item.
+        selectItem(mCurrentSelectedPosition);
 
         // Indicate that this fragment would like to influence the set of actions in the action bar.
         setHasOptionsMenu(true);
@@ -99,12 +102,7 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mDrawerListView = (ListView) inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
-        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
-            }
-        });
+        mDrawerListView.setOnItemClickListener(this);
         if (mDrawerListAdapter != null) {
             mDrawerListView.setAdapter(mDrawerListAdapter);
             mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
@@ -113,10 +111,15 @@ public class NavigationDrawerFragment extends Fragment {
         return mDrawerListView;
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        selectItem(position);
+    }
+
     public void setAdapter(ListAdapter adapter) {
         mDrawerListAdapter = adapter;
         if (mDrawerListView != null) {
-            mDrawerListView.setAdapter(adapter);
+            mDrawerListView.setAdapter(mDrawerListAdapter);
             mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         }
     }
@@ -256,6 +259,7 @@ public class NavigationDrawerFragment extends Fragment {
     private void showGlobalContextActionBar() {
         ActionBar actionBar = getActionBar();
         actionBar.setTitle(mDrawerTitle);
+        actionBar.setSubtitle(null);
     }
 
     private ActionBar getActionBar() {
