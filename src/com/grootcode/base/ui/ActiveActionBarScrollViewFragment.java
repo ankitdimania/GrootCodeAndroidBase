@@ -4,8 +4,6 @@ import static com.grootcode.android.util.LogUtils.makeLogTag;
 import roboguice.fragment.RoboFragment;
 import android.annotation.TargetApi;
 import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
@@ -27,8 +25,6 @@ import com.grootcode.base.R;
 public class ActiveActionBarScrollViewFragment extends RoboFragment implements Callbacks, OnTouchListener,
         GestureDetector.OnGestureListener {
     @SuppressWarnings("unused") private static String TAG = makeLogTag(ActiveActionBarScrollViewFragment.class);
-
-    private static final Drawable TRANSPARENT = new ColorDrawable(Color.TRANSPARENT);
 
     private final Handler mHandler = new Handler();
     private final Drawable.Callback drawableCallback = new Drawable.Callback() {
@@ -75,9 +71,11 @@ public class ActiveActionBarScrollViewFragment extends RoboFragment implements C
         Drawable actionBarBackground = a.getDrawable(indexOfAttrBackground);
         a.recycle();
 
+        Drawable actionBarTranlucentDrawable = getResources().getDrawable(R.drawable.actionbar_translucentbackground);
+
         td = new TransitionDrawable(new Drawable[] {
                 actionBarBackground,
-                TRANSPARENT,
+                actionBarTranlucentDrawable,
         });
         td.setCrossFadeEnabled(true);
 
@@ -100,20 +98,23 @@ public class ActiveActionBarScrollViewFragment extends RoboFragment implements C
     @Override
     public void onPause() {
         super.onPause();
+
         // Prevents null pointer by not storing this activity context into action bar
         getActionBar().setBackgroundDrawable(td.getDrawable(0));
     }
 
     protected void onLoadComplete() {
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (isVisible()) {
-                    actionBar();
-                }
-            }
-        }, 1000);
+        mHandler.postDelayed(mActionBarInitRunnable, 1000);
     }
+
+    private final Runnable mActionBarInitRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (isVisible()) {
+                actionBarInit();
+            }
+        }
+    };
 
     private final Runnable mHideActionBarRunnable = new Runnable() {
         @Override
@@ -124,7 +125,7 @@ public class ActiveActionBarScrollViewFragment extends RoboFragment implements C
         }
     };
 
-    private void actionBar() {
+    private void actionBarInit() {
         mHandler.postDelayed(mHideActionBarRunnable, 700);
         setActionBarTransparent();
     }
@@ -174,6 +175,9 @@ public class ActiveActionBarScrollViewFragment extends RoboFragment implements C
         if (getActionBar().isShowing()) {
             getActionBar().hide();
             onHideActionBar();
+
+            // Remove all hide callbacks, if any
+            mHandler.removeCallbacks(mHideActionBarRunnable);
         }
     }
 
@@ -212,7 +216,6 @@ public class ActiveActionBarScrollViewFragment extends RoboFragment implements C
             mHandler.postDelayed(mHideActionBarRunnable, 4000);
         } else if (distanceY > 0) {
             hideActionBar();
-            mHandler.removeCallbacks(mHideActionBarRunnable);
         }
         return false;
     }
