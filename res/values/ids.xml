@@ -3,4 +3,11 @@
     <item name="sliding_tab_strip" type="id"/>
     <item name="sliding_tab_pager" type="id"/>
 
+    <!-- About -->
+    <item name="menu_about" type="id"/>
+
+    <!-- Eula and about -->
+    <item name="about_body" type="string"></item>
+    <item name="eula_text" type="string"></item>
+
 </resources>

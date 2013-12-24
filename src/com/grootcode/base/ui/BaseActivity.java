@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.grootcode.android.util.SearchMenuCompat;
+import com.grootcode.base.R;
+import com.grootcode.base.util.HelpUtils;
 import com.grootcode.roboguice.activity.RoboActionBarActivity;
 
 /**
@@ -22,6 +25,15 @@ public class BaseActivity extends RoboActionBarActivity {
 
     protected void setupSearchMenuItem(Menu menu) {
         SearchMenuCompat.setupSearchMenuItem(this, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_about) {
+            HelpUtils.showAbout(this);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

@@ -1,5 +1,5 @@
-<!-- make targetApi to 14 while development to prevent errors. Change it back to 10 when done and clean the project -->
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android" tools:targetApi="14">
+<!-- make targetApi to 17 while development to prevent errors. Change it back to 7 when done and clean the project -->
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android" tools:targetApi="17">
 
     <!-- Empty parent idiom -->
     <style name="NoParent" />
@@ -260,7 +260,6 @@
     </style>
 
     <style name="ListCardItem" parent="ListItemContainerBase">
-
         <!-- item name="android:background">@drawable/card_background_gray_bg_full</item -->
         <item name="android:foreground">@drawable/activatable_item_background</item>
     </style>
@@ -317,6 +316,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textColor">@color/body_text_1</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="ListItemTitle.ComplexContent" parent="ListItemTitle">
@@ -324,6 +325,7 @@
         <item name="android:paddingRight">?listPreferredItemPaddingRight</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="ListItemTitle.ComplexContent.Inset" parent="ListItemTitle.ComplexContent">
@@ -342,6 +344,7 @@
 
     <style name="ListItemSubSubtitle" parent="ListSeparatorTextViewStyle">
         <item name="android:textColor">@color/body_text_2</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="ListItemSubSubtitle2">
@@ -350,20 +353,24 @@
         <item name="android:textStyle">bold</item>
         <item name="android:paddingLeft">@dimen/padding_list_item_sub_section</item>
         <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="ListItemTitle.Inverse">
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/body_text_1_inverse</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="ListItemSubtitle.Inverse">
         <item name="android:textColor">@color/body_text_2_inverse</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <!-- Empty views -->
     <style name="EmptyText">
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">#aaa</item>
     </style>
 
@@ -371,15 +378,18 @@
     <style name="TextHeader">
         <item name="android:textSize">@dimen/text_size_xlarge</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:textColor">@color/body_text_1</item>
         <item name="android:maxLines">?textHeaderMaxLines</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="TextHeaderSub">
         <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/body_text_2</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="TextHeaderSubSmall">
@@ -388,9 +398,10 @@
         <item name="android:textColor">@color/body_text_2</item>
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingBottom">4dp</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
-    <style name="TextHeaderUnderline">
+    <style name="TextHeaderAccent">
         <item name="android:textSize">@dimen/text_size_small</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/accent_1</item>
@@ -431,6 +442,7 @@
         <item name="android:lineSpacingMultiplier">1.1</item>
         <item name="android:textColor">@color/body_text_1</item>
         <item name="android:textIsSelectable">false</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="TextBodySelectable">
@@ -438,6 +450,7 @@
         <item name="android:lineSpacingMultiplier">1.1</item>
         <item name="android:textColor">@color/body_text_1</item>
         <item name="android:textIsSelectable">true</item>
+        <item name="android:textAlignment">viewStart</item>
     </style>
 
     <style name="ItemDetailHeader">

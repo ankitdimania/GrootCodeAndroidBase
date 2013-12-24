@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="empty_waiting_for_sync">同期中</string>
+
+    <!-- Description -->
+    <string name="description_about">詳細</string>
+
+    <!-- Title -->
+    <string name="title_about">詳細</string>
+
+    <!-- EULA and about -->
+    <string name="about_eula">エンドユーザーライセンス契約</string>
+    <string name="about_licenses">オープンソースライセンス</string>
+
+</resources>

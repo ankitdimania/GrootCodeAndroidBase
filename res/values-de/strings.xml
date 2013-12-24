@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="empty_waiting_for_sync">Auf Synchronisierung warten&#8230;</string>
+
+    <!-- Description -->
+    <string name="description_about">Über</string>
+
+    <!-- Title -->
+    <string name="title_about">Über</string>
+
+    <!-- EULA and about -->
+    <string name="about_eula">Endbenutzer-Lizenzvereinbarung</string>
+    <string name="about_licenses">Open Source-Lizenzen</string>
+
+</resources>

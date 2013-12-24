@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="empty_waiting_for_sync">Ожидание синхронизации&#8230;</string>
+
+    <!-- Description -->
+    <string name="description_about">О нас</string>
+
+    <!-- Title -->
+    <string name="title_about">О нас</string>
+
+    <!-- EULA and about -->
+    <string name="about_eula">Лицензионное соглашение конечного пользователя</string>
+    <string name="about_licenses">Лицензии на открытое ПО</string>
+
+</resources>

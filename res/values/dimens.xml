@@ -8,7 +8,7 @@
     <dimen name="navigation_drawer_width">300dp</dimen>
     
     <!-- Padding -->
-    <dimen name="padding_list_item_sub_section">3dp</dimen>
+    <dimen name="padding_list_item_sub_section">4dp</dimen>
     
     <!-- UI elements -->
     <dimen name="multipane_half_padding">8dp</dimen>

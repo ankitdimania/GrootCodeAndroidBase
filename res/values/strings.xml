@@ -3,5 +3,16 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="empty_waiting_for_sync">Waiting for sync&#8230;</string>
+
+    <!-- Description -->
+    <string name="description_about">About</string>
+
+    <!-- Title -->
+    <string name="title_about">About</string>
+
+    <!-- EULA and about -->
+    <string name="about_eula">End User License Agreement</string>
+    <string name="about_licenses">Open Source Licenses</string>
 
 </resources>
